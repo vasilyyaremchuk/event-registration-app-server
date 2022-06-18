@@ -1,0 +1,7 @@
+# Drupal stuff
+/vendor
+/web
+/keys
+
+# misc
+.DS_Store
