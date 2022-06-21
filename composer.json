@@ -20,7 +20,8 @@
         "drupal/core-project-message": "^9.4",
         "drupal/core-recommended": "^9.4",
         "drupal/eck": "^1.0@beta",
-        "drupal/simple_oauth": "^5.2"
+        "drupal/simple_oauth": "^5.2",
+        "drupal/views_data_export": "^1.1"
     },
     "conflict": {
         "drupal/drupal": "*"
