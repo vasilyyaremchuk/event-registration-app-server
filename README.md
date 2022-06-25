@@ -80,11 +80,15 @@ Click "Generate keys" button. Input directory '../keys'. Save configuration.
 ## Possible issue and improvments
 
 1. The permissions set need to be set more accurate on '/admin/people/permissions'.
+For example, '/admin/content/participant/add/event_participant'
+available for anonymous. We need to add captcha at least or think some additional role that can sens participants from client application.
 
 2. Bulk export of contacts in CSV now is publically available, we need to add authorisation.
 See '/admin/structure/views/view/participants'
 
 3. In the custom 'participant_sqs' module we use hook_entity_insert that isn't best practice, but we did that in the metter of simplisity. The better will be use Hook Event Dispatcher module that based on the Drupal Event Subscriber system.
+
+4. The address where the information for new participant goes hardcoded in lambda function (https://github.com/vasilyyaremchuk/event-registration-app-lambda), but it worth to be managebal in the Drupal admin.
 
 ## References
 
@@ -97,3 +101,7 @@ https://medium.com/thefirstcode/cors-cross-origin-resource-sharing-in-drupal-8-1
 https://www.drupal.org/project/hook_event_dispatcher
 
 https://gist.github.com/fbrnc/396548c85ee083e32930
+
+https://github.com/vasilyyaremchuk/event-registration-app-lambda
+
+https://github.com/vasilyyaremchuk/event-registration-app-client
