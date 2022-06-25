@@ -1,0 +1,5 @@
+name: Participant SQS
+type: module
+description: 'Send Participant data to SQS'
+core_version_requirement: '^8 || ^9'
+package: Event Registration App

@@ -15,13 +15,15 @@
         }
     ],
     "require": {
+        "aws/aws-sdk-php": "^3.228",
         "composer/installers": "^1.9",
         "drupal/core-composer-scaffold": "^9.4",
         "drupal/core-project-message": "^9.4",
         "drupal/core-recommended": "^9.4",
         "drupal/eck": "^1.0@beta",
         "drupal/simple_oauth": "^5.2",
-        "drupal/views_data_export": "^1.1"
+        "drupal/views_data_export": "^1.1",
+        "drush/drush": "^11.0"
     },
     "conflict": {
         "drupal/drupal": "*"

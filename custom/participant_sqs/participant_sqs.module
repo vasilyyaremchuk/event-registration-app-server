@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Contains participant_sqs.module.
+ */
+
+use Aws\Sdk;
+
+/**
+ * Implements hook_entity_insert().
+ */
+
+function participant_sqs_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->bundle() == 'event_participant') {
+    $message_body = "First Name: " . $entity->get('field_first_name')->getString() .
+    "; Last Name: " . $entity->get('field_last_name')->getString() .
+    "; Email: " . $entity->get('field_email')->getString() .
+    "; Interests: " . $entity->get('field_interests')->getString();
+
+    $queueUrl = 'https://sqs.us-east-1.amazonaws.com/780261813487/event-participant';
+
+    $sdk = new Sdk();
+    $sqsClient = $sdk->createSqs([
+        'region' => 'us-east-1',
+        'version' => '2012-11-05',
+        'credentials' => [
+            'key'    => getenv('AWS_ACCESS_KEY_ID'),
+            'secret' => getenv('AWS_SECRET_ACCESS_KEY')
+        ]
+    ]);
+    $sqsClient->sendMessage(array(
+      'QueueUrl' => $queueUrl,
+      'MessageBody' => $message_body,
+    ));
+  }
+
+}
